@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <string.h>
-//#include <stdio.h>
 #include <stddef.h>
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
@@ -25,14 +23,3 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		i++;
 	return (s1[i] - s2[i]);
 }
-
-/*int	main(void)
-{
-	char s1[7] = "42Porto";
-	char s2[7] = "42Porta";
-
-	printf("Expected: %i\n", strncmp(s1, s2, 5));
-	printf("Mine    : %i\n", ft_strncmp(s1, s2, 5));
-	printf("Expected: %i\n", strncmp(s1, s2, 7));
-	printf("Mine    : %i\n", ft_strncmp(s1, s2, 7));
-}*/
