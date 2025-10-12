@@ -32,7 +32,7 @@ void	test_memset(void)
     		memset(s1, tests[i].fill_char, tests[i].n);
     		ft_memset(s2, tests[i].fill_char, tests[i].n);
 
-    		if (memcmp(s1, s2, 10) == 0)
+    		if (memcmp(s1, s2, sizeof(s1)) == 0)
 		{
         		printf("✅ Test %d passed\n", i + 1);
 			passed++;
