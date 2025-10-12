@@ -10,14 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <bsd/string.h>
+#include <string.h>
+#include <stddef.h>
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	unsigned int	i;
-	unsigned int	j;
-	char			*found;
+	unsigned int		i;
+	unsigned int		j;
+	const char		*found;
 
 	i = 0;
 	j = 0;
@@ -30,7 +30,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 			j++;
 		}
 		if (little[j] == '\0')
-			return (found);
+			return ((char *)found);
 		else if (big[i] != little[j] && little[j] != '\0')
 		{
 			j = 0;
@@ -38,20 +38,4 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		}
 	}
 	return (NULL);
-}
-
-int	main(void)
-{
-	char myStr[] = "aaaaad";
-	char *myPtr = ft_strnstr(myStr, "aad", 3);
-	char *theirPtr = strnstr(myStr, "aad", 3);
-	if (myPtr != NULL)
-	{
-		printf("Mine:    %s\n", myPtr);
-	}
-	if (theirPtr != NULL)
-	{
-		printf("Expected: %s\n", theirPtr);
-	}
-	return 0;
 }
