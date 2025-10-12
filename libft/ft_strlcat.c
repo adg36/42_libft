@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
-//#include <bsd/string.h>
 #include <stddef.h>
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
@@ -37,16 +35,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	}
 	return (i);
 }
-
-/*int	main(void)
-{
-	char src[10] = "42Porto";
-	char dest1[30] = "I study at ";
-	char dest2[30] = "I study at ";
-
-	strlcat(dest1, src, 12 * sizeof(char));
-	ft_strlcat(dest2, src, 12 * sizeof(char));
-
-	printf("Expected: %s\n", dest1);
-	printf("Mine    : %s\n", dest2);
-}*/

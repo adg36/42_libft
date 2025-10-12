@@ -4,8 +4,8 @@
 
 void	test_memset(void)
 {
-	int	passed;
-	int	failed;
+	int	passed = 0;
+	int	failed = 0;
 
 	typedef struct s_memset_case
 	{
@@ -19,13 +19,18 @@ void	test_memset(void)
    		{"abcdef", 'y', 0},
    		{"", 'z', 0},
   		{"12345", '0', 5},
+		{"hello", '*', 10},
 	};
+
+	int NUM_TESTS = sizeof(tests) / sizeof(tests[0]);
 
 	printf("Testing ft_memset:\n");
 
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < NUM_TESTS; i++)
 	{
     		char s1[10], s2[10];
+		memset(s1, 0, sizeof(s1));
+		memset(s2, 0, sizeof(s2));
     		strcpy(s1, tests[i].original);
     		strcpy(s2, tests[i].original);
 
@@ -43,5 +48,5 @@ void	test_memset(void)
 			failed++;
 		}
 	}
-	printf("\n\n");
+	printf("\nSummary: %d passed, %d failed\n\n\n", passed, failed);
 }
