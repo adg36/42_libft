@@ -2,18 +2,18 @@
 #include <ctype.h>
 #include "../libft/ft_libft.h"
 
-void	test_isalnum(void)
+void	test_toupper(void)
 {
 	char c[] = {'a', 'Z', '5', '@', ' '};
 	int size = sizeof(c) / sizeof(c[0]);
 	int passed = 0;
 	int failed = 0;
 
-	printf("Testing ft_isalnum:\n");
+	printf("Testing ft_toupper:\n");
 
 	for (int i = 0; i < size; i++)
 	{
-		if ((isalnum(c[i]) != 0) == (ft_isalnum(c[i]) != 0))
+		if (toupper(c[i]) == ft_toupper(c[i]))
 		{
 			printf("✅ %c passed\n", c[i]);
 			passed++;

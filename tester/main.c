@@ -11,7 +11,7 @@ int	main(int argc, char **argv)
 	}
 	if (strcmp(argv[1], "ft_isalnum") == 0)
 		test_isalnum();
-/*	else if (strcmp(argv[1], "ft_isalpha") == 0)
+	else if (strcmp(argv[1], "ft_isalpha") == 0)
 		test_isalpha();
 	else if (strcmp(argv[1], "ft_isascii") == 0)
 		test_isascii();
@@ -29,8 +29,8 @@ int	main(int argc, char **argv)
 		test_strlen();
 	else if (strcmp(argv[1], "ft_strncmp") == 0)
 		test_strncmp();
-	else if (strcmp(argv[1], "ft_strnstr") == 0)
-		test_strnstr();
+//	else if (strcmp(argv[1], "ft_strnstr") == 0)
+//		test_strnstr();
 	else if (strcmp(argv[1], "ft_toupper") == 0)
 		test_toupper();
 	else if (strcmp(argv[1], "ft_tolower") == 0)
@@ -47,10 +47,10 @@ int	main(int argc, char **argv)
 		test_strlcpy();
 		test_strlen();
 		test_strncmp();
-		test_strnstr();
+//		test_strnstr();
 		test_toupper();
 		test_tolower();
-	}*/
+	}
 	else
 		printf("Unknown function: %s\n", argv[1]);
 	return (0);
