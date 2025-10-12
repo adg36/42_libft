@@ -16,5 +16,5 @@ void	test_strncmp(void)
 		printf("✅ ft_strncmp passed\n");
 	else
 		printf("❌ ft_strncmp failed\n");
+	printf("\n\n");
 }
-

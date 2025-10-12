@@ -24,5 +24,5 @@ void	test_toupper(void)
 			failed++;
 		}
 	}
-	printf("\nSummary: %d passed, %d failed\n", passed, failed);
+	printf("\nSummary: %d passed, %d failed\n\n\n", passed, failed);
 }

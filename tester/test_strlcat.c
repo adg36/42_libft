@@ -14,7 +14,8 @@ void	test_strlcat(void)
 	printf("Testing ft_strlcat:\n");
 
 	if (strcmp(dest1, dest2) == 0)
-		printf("✅ ft_memstrlcat passed\n");
+		printf("✅ ft_strlcat passed\n");
 	else
-		printf("❌ ft_memstrlcat failed\n");
+		printf("❌ ft_strlcat failed\n");
+	printf("\n\n");
 }

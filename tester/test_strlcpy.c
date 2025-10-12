@@ -14,7 +14,8 @@ void	test_strlcpy(void)
 	printf("Testing ft_strlcpy:\n");
 
 	if (strcmp(dest1, dest2) == 0)
-		printf("✅ ft_memstrlcpy passed\n");
+		printf("✅ ft_strlcpy passed\n");
 	else
-		printf("❌ ft_memstrlcpy failed\n");
+		printf("❌ ft_strlcpy failed\n");
+	printf("\n\n");
 }
