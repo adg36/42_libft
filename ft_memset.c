@@ -16,23 +16,26 @@
 void	*ft_memset(void *s, int c, size_t n)
 {
 		unsigned int	i;
+		unsigned char	*ptr;
 
 		i = 0;
+		ptr = s;
 		while (i < n)
 		{
-			(unsigned char *)s[i] = c;
+			*(unsigned char *)s = c;
+			s++;
 			i++;
 		}
-		return (s);
+		return (ptr);
 }
 
 int	main(void)
 {
-	char str1[7] = "42Porto";
+	//char str1[7] = "42Porto";
 	char str2[7] = "42Porto";
 	
-	memset(str1, '.', 2*sizeof(char));
+	//memset(str1, '.', 2*sizeof(char));
 	ft_memset(str2, '.', 2*sizeof(char));
-	printf("expected:%s\n", str1);
-	printf("mine    :%s\n", str2);
+	//printf("expected: %s\n", str1);
+	printf("mine    : %s\n", str2);
 }
