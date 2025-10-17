@@ -6,11 +6,9 @@
 /*   By: razevedo <razevedo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 15:07:38 by razevedo          #+#    #+#             */
-/*   Updated: 2025/10/10 15:20:59 by razevedo         ###   ########.fr       */
+/*   Updated: 2025/10/13 11:01:41 by razevedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stddef.h>
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {

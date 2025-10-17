@@ -1,29 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: razevedo <razevedo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/10 11:55:52 by razevedo          #+#    #+#             */
-/*   Updated: 2025/10/13 11:54:06 by razevedo         ###   ########.fr       */
+/*   Created: 2025/10/13 13:44:51 by razevedo          #+#    #+#             */
+/*   Updated: 2025/10/15 12:12:44 by razevedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
+#include <stdio.h>
 
-void	*ft_memset(void *s, int c, size_t n)
+char	*ft_strchr(const char *s, int c)
 {
-	unsigned int	i;
-	unsigned char	*ptr;
+	char	*ptr;
 
-	i = 0;
-	ptr = s;
-	while (i < n)
+	ptr = NULL;
+	while (*s)
 	{
-		*(unsigned char *)s = c;
+		if (*s == c)
+		{
+			ptr = (char *)s;
+			return (ptr);
+		}
 		s++;
-		i++;
 	}
 	return (ptr);
 }
+
+/*int	main(void)
+{
+	char str[] = "I am @42 Porto.";
+
+	printf("Mine:     %s\n", ft_strchr(str, '@'));
+	printf("Expected: %s\n", strchr(str, '@'));	
+	return 0;
+}*/

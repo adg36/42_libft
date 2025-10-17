@@ -1,29 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: razevedo <razevedo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/10 11:55:52 by razevedo          #+#    #+#             */
-/*   Updated: 2025/10/13 11:54:06 by razevedo         ###   ########.fr       */
+/*   Created: 2025/10/15 15:28:29 by razevedo          #+#    #+#             */
+/*   Updated: 2025/10/15 15:37:14 by razevedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-void	*ft_memset(void *s, int c, size_t n)
+char	*ft_strdup(const char *s)
 {
-	unsigned int	i;
-	unsigned char	*ptr;
+	int		i;
+	char	*dup;
 
 	i = 0;
-	ptr = s;
-	while (i < n)
+	while (s[i])
 	{
-		*(unsigned char *)s = c;
-		s++;
 		i++;
 	}
-	return (ptr);
+	dup = malloc(i + 1);
+	if (!dup)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		dup[i] = s[i];
+		i++;
+	}
+	return (dup);
 }
+
+/*int	main(void)
+{
+	const char *string = "42 Porto";
+
+	printf("Expected: s is %s and dup is %s\n", string, strdup(string));
+	printf("Mine    : s is %s and dup is %s\n", string, ft_strdup(string));
+}*/

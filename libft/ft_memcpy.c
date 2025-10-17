@@ -1,29 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: razevedo <razevedo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/10 11:55:52 by razevedo          #+#    #+#             */
-/*   Updated: 2025/10/13 11:54:06 by razevedo         ###   ########.fr       */
+/*   Created: 2025/10/13 12:01:26 by razevedo          #+#    #+#             */
+/*   Updated: 2025/10/15 12:15:14 by razevedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
+#include <stdio.h>
 
-void	*ft_memset(void *s, int c, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	unsigned int	i;
 	unsigned char	*ptr;
 
-	i = 0;
-	ptr = s;
-	while (i < n)
+	if (!dest)
+		return (NULL);
+	ptr = dest;
+	while (n > 0)
 	{
-		*(unsigned char *)s = c;
-		s++;
-		i++;
+		*ptr = *(unsigned char *)src;
+		n--;
+		ptr++;
+		src++;
 	}
-	return (ptr);
+	return (dest);
 }
+
+/*int	 main(void)
+{
+	char src[10] = "Hello";
+	char dest[10] = "Goodbye";
+
+	memcpy(dest, src, 4 * sizeof(char));
+
+	printf("%s\n", dest);
+}*/
