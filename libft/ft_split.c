@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 int		ft_count_words(char const *string, char c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);

@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <strings.h>
-//#include <stdio.h>
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {
@@ -25,19 +24,3 @@ void	ft_bzero(void *s, size_t n)
 		n--;
 	}
 }
-
-/*int	main(void)
-{
-	char s[15] = "Hello world";
-	
-	ft_bzero(s, 4 * sizeof(char));
-
-	for (int i = 0; i < 12; i++)
-	{
-		if (s[i] == '\0')
-			printf("\\0");
-		else
-			printf("%c", s[i]);
-	}
-	printf("\n");
-}*/
