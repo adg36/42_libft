@@ -6,7 +6,7 @@
 #    By: razevedo <razevedo@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/13 11:05:32 by razevedo          #+#    #+#              #
-#    Updated: 2025/10/13 11:34:42 by razevedo         ###   ########.fr        #
+#    Updated: 2025/10/20 10:26:40 by razevedo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,7 @@ NAME = libft.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strlen.c ft_memset.c ft_strlcpy.c ft_strlcat.c ft_toupper.c ft_tolower.c ft_strncmp.c ft_strnstr.c ft_atoi.c ft_bzero.c ft_calloc.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_split.c ft_strchr.c ft_strrchr.c ft_strdup.c
-
+SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strlen.c ft_memset.c ft_strlcpy.c ft_strlcat.c ft_toupper.c ft_tolower.c ft_strncmp.c ft_strnstr.c
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
@@ -29,6 +28,7 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+
 re: fclean all
 
 .PHONY: all clean fclean

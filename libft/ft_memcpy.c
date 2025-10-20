@@ -6,7 +6,7 @@
 /*   By: razevedo <razevedo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 12:01:26 by razevedo          #+#    #+#             */
-/*   Updated: 2025/10/15 12:15:14 by razevedo         ###   ########.fr       */
+/*   Updated: 2025/10/20 10:24:27 by razevedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,3 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
-
-/*int	 main(void)
-{
-	char src[10] = "Hello";
-	char dest[10] = "Goodbye";
-
-	memcpy(dest, src, 4 * sizeof(char));
-
-	printf("%s\n", dest);
-}*/

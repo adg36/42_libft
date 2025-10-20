@@ -6,7 +6,7 @@
 /*   By: razevedo <razevedo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 11:40:22 by razevedo          #+#    #+#             */
-/*   Updated: 2025/10/10 15:06:55 by razevedo         ###   ########.fr       */
+/*   Updated: 2025/10/20 10:33:50 by razevedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlen(const char *s)
 {
-	unsigned int	count;
+	size_t	count;
 
 	count = 0;
 	while (*s)

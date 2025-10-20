@@ -6,7 +6,7 @@
 /*   By: razevedo <razevedo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 09:07:46 by razevedo          #+#    #+#             */
-/*   Updated: 2025/10/15 12:09:01 by razevedo         ###   ########.fr       */
+/*   Updated: 2025/10/20 10:21:38 by razevedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,15 @@
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	unsigned char	*str;
+	size_t			i;
 
 	str = (unsigned char *)s;
-	while (n > 0)
+	i = 0;
+	while (i < n)
 	{
-		if (*str == (char)c)
-			return (str);
-		str++;
-		n--;
+		if (str[i] == (char)c)
+			return (str[i]);
+		i++;
 	}
 	return (NULL);
 }
-
-/*int	main(void)
-{
-	char *str = "Hello";
-	printf("Expected: %p\n", memchr(str, 'e', 3 * sizeof(char)));
-	printf("Mine:     %p\n", ft_memchr(str, 'e', 3 * sizeof(char)));
-	printf("Expected: %p\n", memchr(str, 'o', 3 * sizeof(char)));
-	printf("Mine:     %p\n", ft_memchr(str, 'o', 3 * sizeof(char)));
-	printf("Expected: %p\n", memchr(str, 'l', 3 * sizeof(char)));
-	printf("Mine:     %p\n", ft_memchr(str, 'l', 3 * sizeof(char)));
-	printf("Expected: %p\n", memchr("", 'e', 3 * sizeof(char)));
-	printf("Mine:     %p\n", ft_memchr("", 'e', 3 * sizeof(char)));
-}*/

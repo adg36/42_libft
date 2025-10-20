@@ -6,15 +6,15 @@
 /*   By: razevedo <razevedo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 11:55:52 by razevedo          #+#    #+#             */
-/*   Updated: 2025/10/13 11:54:06 by razevedo         ###   ########.fr       */
+/*   Updated: 2025/10/20 10:28:27 by razevedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	unsigned int	i;
+	size_t			i;
 	unsigned char	*ptr;
 
 	i = 0;

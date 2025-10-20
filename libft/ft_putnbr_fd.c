@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: razevedo <razevedo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/10 11:14:26 by razevedo          #+#    #+#             */
-/*   Updated: 2025/10/20 10:27:44 by razevedo         ###   ########.fr       */
+/*   Created: 2025/10/20 14:30:39 by razevedo          #+#    #+#             */
+/*   Updated: 2025/10/20 14:33:17 by razevedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(int c)
+#include <unistd.h>
+
+void	ft_putnbr_fd(int n, int fd)
 {
-	if (c < 0 || c > 127)
-		return (0);
-	return (1);
+	long	n;
+	char	c;
+
+	n = nb;
+	if (n < 0)
+	{
+		write(fd, "-", 1);
+		n = -n;
+	}
+	if (n > 9)
+		ft_putnbr_fd(n / 10);
+	c = n % 10 + '0';
+	write(fd, &c, 1);
 }

@@ -6,34 +6,22 @@
 /*   By: razevedo <razevedo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 13:44:51 by razevedo          #+#    #+#             */
-/*   Updated: 2025/10/15 12:12:44 by razevedo         ###   ########.fr       */
+/*   Updated: 2025/10/20 10:30:59 by razevedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {
 	char	*ptr;
 
-	ptr = NULL;
-	while (*s)
+	ptr = (char *)s;
+	while (*ptr)
 	{
-		if (*s == c)
-		{
-			ptr = (char *)s;
+		if (*ptr == c)
 			return (ptr);
-		}
-		s++;
+		ptr++;
 	}
-	return (ptr);
+	if (c == '\0')
+		return (ptr);
+	return (NULL);
 }
-
-/*int	main(void)
-{
-	char str[] = "I am @42 Porto.";
-
-	printf("Mine:     %s\n", ft_strchr(str, '@'));
-	printf("Expected: %s\n", strchr(str, '@'));	
-	return 0;
-}*/

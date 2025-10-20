@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: razevedo <razevedo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/10 11:14:26 by razevedo          #+#    #+#             */
-/*   Updated: 2025/10/20 10:27:44 by razevedo         ###   ########.fr       */
+/*   Created: 2025/10/20 14:18:35 by razevedo          #+#    #+#             */
+/*   Updated: 2025/10/20 14:26:35 by razevedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(int c)
+#include <unistd.h>
+
+void	ft_putchar_fd(char c, int fd)
 {
-	if (c < 0 || c > 127)
-		return (0);
-	return (1);
+	write(fd, &c, 1);
 }

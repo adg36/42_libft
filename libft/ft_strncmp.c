@@ -6,20 +6,20 @@
 /*   By: razevedo <razevedo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 15:44:17 by razevedo          #+#    #+#             */
-/*   Updated: 2025/10/13 11:03:35 by razevedo         ###   ########.fr       */
+/*   Updated: 2025/10/20 10:34:40 by razevedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	unsigned int	i;
+	size_t	i;
 
 	i = 0;
 	if (n < 1)
 		return (0);
 	while (s1[i] && s2[i] && s1[i] == s2[i] && i < n - 1)
 		i++;
-	return (s1[i] - s2[i]);
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

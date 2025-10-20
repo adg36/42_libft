@@ -6,7 +6,7 @@
 /*   By: razevedo <razevedo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 12:52:44 by razevedo          #+#    #+#             */
-/*   Updated: 2025/10/15 15:26:57 by razevedo         ###   ########.fr       */
+/*   Updated: 2025/10/20 10:25:40 by razevedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	unsigned int	i;
+	size_t	i;
 
 	i = 0;
 	if (dest < src)
@@ -36,12 +36,3 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
-/*
-int	main(void)
-{
-	char source[] = "Hello";
-
-	printf("Expected: %p\n", memmove(source+2, source, sizeof(char) * 2));
-	printf("Mine    : %p\n", ft_memmove(source+2, source, sizeof(char) * 2));
-	return 0;
-}*/

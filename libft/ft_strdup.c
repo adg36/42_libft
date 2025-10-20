@@ -6,7 +6,7 @@
 /*   By: razevedo <razevedo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 15:28:29 by razevedo          #+#    #+#             */
-/*   Updated: 2025/10/15 15:37:14 by razevedo         ###   ########.fr       */
+/*   Updated: 2025/10/20 10:31:46 by razevedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,7 @@ char	*ft_strdup(const char *s)
 
 	i = 0;
 	while (s[i])
-	{
 		i++;
-	}
 	dup = malloc(i + 1);
 	if (!dup)
 		return (NULL);
@@ -31,13 +29,6 @@ char	*ft_strdup(const char *s)
 		dup[i] = s[i];
 		i++;
 	}
+	dup[i] = '\0';
 	return (dup);
 }
-
-/*int	main(void)
-{
-	const char *string = "42 Porto";
-
-	printf("Expected: s is %s and dup is %s\n", string, strdup(string));
-	printf("Mine    : s is %s and dup is %s\n", string, ft_strdup(string));
-}*/

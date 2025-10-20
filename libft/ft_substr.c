@@ -1,35 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: razevedo <razevedo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/15 11:25:31 by razevedo          #+#    #+#             */
-/*   Updated: 2025/10/20 09:57:12 by razevedo         ###   ########.fr       */
+/*   Created: 2025/10/15 16:47:39 by razevedo          #+#    #+#             */
+/*   Updated: 2025/10/16 11:06:51 by razevedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int	result;
-	int	sign;
+	char			*substring;
+	unsigned int	i;
 
-	result = 0;
-	while (*nptr == ' ' || (*nptr >= 9 && *nptr <= 13))
-		nptr++;
-	if (*nptr == '-')
-		sign = -1;
-	else
-		sign = 1;
-	if (*nptr == '-' || *nptr == '+')
-		nptr++;
-	while (*nptr >= '0' && *nptr <= '9')
+	substring = malloc(len + 1);
+	if (!substring)
+		return (NULL);
+	i = 0;
+	while (i < len)
 	{
-		result = result * 10 + (*nptr - '0');
-		nptr++;
+		substring[i] = s[start];
+		i++;
+		start++;
 	}
-	return (sign * result);
+	substring[i] = '\0';
+	return (substring);
 }
+
+/*int	main(void)
+{
+	char *string = "I like cheese and 42 is fun.";
+
+	printf("%s\n", ft_substr(string, 18, 9));
+}*/
