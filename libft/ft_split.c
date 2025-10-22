@@ -24,7 +24,7 @@ char	**ft_split(char const *s, char c)
 	int		arr_index;
 	int		word_len;
 
-	if (c == '\0')
+	if (!s || c == '\0')
 	{
 		arr = malloc(sizeof(char *));
 		if (!arr)
