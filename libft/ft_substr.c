@@ -16,10 +16,14 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char		*substring;
-	unsigned int	i;
+	size_t			i;
 
+	if (s == NULL)
+		return (NULL);
 	if (start >= ft_strlen(s))
 		return (ft_strdup(""));
+	if (start + len > ft_strlen(s))
+		len = ft_strlen(s) - start;
 	substring = malloc(len + 1);
 	if (!substring)
 		return (NULL);

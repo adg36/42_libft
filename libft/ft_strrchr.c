@@ -17,7 +17,7 @@ size_t	ft_strlen(const char *s);
 char	*ft_strrchr(const char *s, int c)
 {
 	const char	*ptr;
-	unsigned char	uc;
+	unsigned char		uc;
 
 	uc = (unsigned char)c;
 	ptr = s + ft_strlen(s);

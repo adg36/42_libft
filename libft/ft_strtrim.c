@@ -18,8 +18,8 @@ int	in_set(char const *s, char c);
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*trimmed;
-	int	start_end[2];
-	int	i;
+	int		start_end[2];
+	int		i;
 
 	i = 0;
 	while (in_set(set, s1[i]))

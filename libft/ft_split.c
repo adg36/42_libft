@@ -13,16 +13,16 @@
 #include "libft.h"
 #include <stdlib.h>
 
-int	ft_count_words(char const *string, char c);
+int		ft_count_words(char const *string, char c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 void	free_all(char **strs, int i);
 
 char	**ft_split(char const *s, char c)
 {
 	char	**arr;
-	int	i;
-	int	arr_index;
-	int	word_len;
+	int		i;
+	int		arr_index;
+	int		word_len;
 
 	if (c == '\0')
 	{
