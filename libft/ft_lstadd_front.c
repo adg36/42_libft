@@ -11,13 +11,9 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	new = malloc(sizeof(t_list));
-	if (!new)
-		return (NULL);
-	new->next = lst;
-	list = new;
+	new->next = *lst;
+	*lst = new;
 }

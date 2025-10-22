@@ -16,55 +16,23 @@ size_t	ft_strlen(const char *s);
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
+	size_t	d_len;
+	size_t	s_len;
 	size_t	i;
-	size_t	j;
 
 	i = 0;
-	if (size == 0)
-		return (ft_strlen(src));
-	while (dst[i] && i < size)
-		i++;
-	j = 0;
-	while (src[j] && i < size - 1)
+	d_len = 0;
+	while (d_len < size && dst[d_len])
+		d_len++;
+	s_len = ft_strlen(src);
+	if (size <= d_len)
+		return (size + s_len);
+	while (src[i] && (i + d_len) < size - 1)
 	{
-		dst[i] = src[j];
+		dst[d_len + i] = src[i];
 		i++;
-		j++;
 	}
-	dst[i] = '\0';
-	while (src[j])
-	{
-		i++;
-		j++;
-	}
-	return (i);
+	if (d_len < size)
+		dst[d_len + i] = '\0';
+	return (d_len + s_len);
 }
-
-/*int   main(void)
-{
-    char buffer[15];
-    size_t ret;
-
-	buffer[0] = '\0';
-	ret = strlcat(buffer, "Hello", sizeof(buffer));
-    printf("Copied: '%s', returned: %zu\n", buffer, ret);
-
-    ret = strlcat(buffer, "123", sizeof(buffer));
-    printf("Copied: '%s', returned: %zu\n", buffer, ret);
-
-    ret = strlcat(buffer, "ABCDEFG", 10);
-    printf("Copied: '%s', returned: %zu\n", buffer, ret);
-
-    ret = strlcat(buffer, "", sizeof(buffer));
-    printf("Copied: '%s', returned: %zu\n", buffer, ret);
-
-    ret = strlcat(buffer, "abc", 0);
-    printf("Copied: '%s', returned: %zu\n", buffer, ret);
-	
-	buffer[0] = 'X';
-	buffer[1] = '\0';
-    ret = strlcat(buffer, "ABCDEFGHIJKLMN", sizeof(buffer));
-    printf("Copied: '%s', returned: %zu\n", buffer, ret);
-
-    return (0);
-}*/

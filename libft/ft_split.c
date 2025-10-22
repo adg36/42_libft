@@ -89,7 +89,7 @@ int	ft_count_words(char const *string, char c)
 	return (count);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+/*char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char			*substring;
 	unsigned int	i;
@@ -108,7 +108,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (substring);
 }
 
-/*int	main(void)
+int	main(void)
 {
 	char s[] = "Hello";
 	char **array;
