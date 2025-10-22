@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "../libft/ft_libft.h"
+#include "../libft/libft.h"
 
 void	test_strlcat(void)
 {
@@ -15,11 +15,11 @@ void	test_strlcat(void)
 	} t_strlcat_case;
 	
 	t_strlcat_case tests[] = {
-		{"42 Porto", "I study at ", 20},
-		{"world", "Hello ", 3},
-		{" there", "Hi", 3},
-		{"", "Hello", 2},
-		{"42 Porto", "I study at ", 0},
+		{"pqrstuvwxyz", "abcd", 1},
+		{"pqrstuvwxyz", "abcd", 2},
+		{"pqrstuvwxyz", "abcd", 3},
+		{"pqrstuvwxyz", "abcd", 4},
+		{"pqrstuvwxyz", "abcd", 5},
 	};
 
 	int NUM_TESTS = sizeof(tests) / sizeof(tests[0]);

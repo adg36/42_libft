@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <ctype.h>
-#include "../libft/ft_libft.h"
+#include "../libft/libft.h"
 
 void	test_isalpha(void)
 {

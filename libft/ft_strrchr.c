@@ -12,41 +12,22 @@
 
 #include "libft.h"
 
+size_t	ft_strlen(const char *s);
+
 char	*ft_strrchr(const char *s, int c)
 {
-	char	*ptr;
+	const char	*ptr;
+	unsigned char	uc;
 
-	ptr = (char *)s;
-	if (*ptr == '\0' && c == '\0')
-		return (ptr);
-	else if (*ptr == '\0' && c != '\0')
-		return (NULL);
-	while (*ptr)
-		ptr++;
-	ptr--;
-	while (*ptr)
+	uc = (unsigned char)c;
+	ptr = s + ft_strlen(s);
+	while (1)
 	{
-		if (*ptr == c)
-			return (ptr);
+		if (*ptr == uc)
+			return ((char *)ptr);
+		if (ptr == s)
+			break ;
 		ptr--;
 	}
-	if (c == '\0')
-		return (ptr);
 	return (NULL);
 }
-
-/*int	main(void)
-{
-	printf("Mine:     %s\n", ft_strrchr("hello", 'e'));
-	printf("Expected: %s\n", strrchr("hello", 'e'));
-	printf("Mine:     %s\n", ft_strrchr("banana", 'a'));
-	printf("Expected: %s\n", strrchr("banana", 'a'));
-	printf("Mine:     %s\n", ft_strrchr("hello", 'z'));
-	printf("Expected: %s\n", strrchr("hello", 'z'));
-	printf("Mine:     %s\n", ft_strrchr("hello", '\0'));
-	printf("Expected: %s\n", strrchr("hello", '\0'));
-	printf("Mine:     %s\n", ft_strrchr("", 'e'));
-	printf("Expected: %s\n", strrchr("", 'e'));
-	printf("Mine:     %s\n", ft_strrchr("", '\0'));
-	printf("Expected: %s\n", strrchr("", '\0'));
-}*/
