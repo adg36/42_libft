@@ -1,41 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: razevedo <razevedo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 12:52:44 by razevedo          #+#    #+#             */
-/*   Updated: 2025/10/21 12:03:40 by razevedo         ###   ########.fr       */
+/*   Created: 2025/10/20 16:22:14 by razevedo          #+#    #+#             */
+/*   Updated: 2025/10/21 16:45:34 by razevedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	size_t				i;
-	unsigned char		*d;
-	const unsigned char	*s;
-
-	d = dest;
-	s = (unsigned char *)src;
-	i = 0;
-	if (d < s)
-	{
-		while (i < n)
-		{
-			*d++ = *s++;
-			i++;
-		}
-	}
-	else if (d > s)
-	{
-		d = d + n - 1;
-		s = s + n - 1;
-		while (n--)
-			*d-- = *s--;
-	}
-	return (dest);
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new->next = lst;
+	list = new;
 }

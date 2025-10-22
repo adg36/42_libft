@@ -6,7 +6,7 @@
 /*   By: razevedo <razevedo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 11:13:51 by razevedo          #+#    #+#             */
-/*   Updated: 2025/10/20 15:09:32 by razevedo         ###   ########.fr       */
+/*   Updated: 2025/10/21 15:09:33 by razevedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,21 @@ char	**ft_split(char const *s, char c)
 {
 	char	**arr;
 
-	arr = (char **)malloc((ft_count_words(s, c) + 1) * sizeof(char *));
+	arr = malloc((ft_count_words(s, c) + 1) * sizeof(char *));
 	if (!arr)
 		return (NULL);
 	ft_fill_arr(s, arr, c);
 	return (arr);
+}
+
+void	free_all(char **strs, int i)
+{
+	while (i > 0)
+	{
+		i--;
+		free(strs[i]);
+	}
+	free(strs);
 }
 
 char	**ft_fill_arr(char const *s, char **arr, char c)
@@ -44,8 +54,11 @@ char	**ft_fill_arr(char const *s, char **arr, char c)
 			word_len++;
 		else if (s[i] == c)
 		{
-			arr[arr_index++] = ft_substr(s, i - word_len, word_len);
+			arr[arr_index] = ft_substr(s, i - word_len, word_len);
+			if (!arr[arr_index])
+				return (free_all(arr, arr_index), NULL);
 			word_len = 0;
+			arr_index++;
 		}
 		i++;
 	}
@@ -97,15 +110,15 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 /*int	main(void)
 {
-	char s[] = "   Hello world of crazy people ";
+	char s[] = "Hello";
 	char **array;
 
 	array = ft_split(s, ' ');
 
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < 1; i++)
 		printf("%s\n", array[i]);
 
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < 1; i++)
 		free(array[i]);
 	free(array);
 

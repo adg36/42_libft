@@ -6,34 +6,40 @@
 /*   By: razevedo <razevedo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 13:32:20 by razevedo          #+#    #+#             */
-/*   Updated: 2025/10/20 13:52:01 by razevedo         ###   ########.fr       */
+/*   Updated: 2025/10/21 15:13:30 by razevedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+#include <limits.h>
 #include "libft.h"
 
-int		num_len(int n);
+int		num_len(long n);
 void	ft_reverse(char *string, int size);
 
 char	*ft_itoa(int n)
 {
 	int		i;
+	long	nb;
 	int		len;
 	int		sign;
 	char	*s;
 
+	nb = n;
 	sign = n;
-	len = num_len(n);
+	len = num_len(nb);
 	s = malloc(len + 1);
 	if (!s)
 		return (NULL);
 	if (sign < 0)
-		n = -n;
+		nb = -nb;
 	i = 0;
-	while (n > 0)
+	if (nb == 0)
+		s[i++] = '0';
+	while (nb > 0)
 	{
-		s[i++] = n % 10 + '0';
-		n /= 10;
+		s[i++] = nb % 10 + '0';
+		nb /= 10;
 	}
 	if (sign < 0)
 		s[i++] = '-';
@@ -42,14 +48,18 @@ char	*ft_itoa(int n)
 	return (s);
 }
 
-int	num_len(int n)
+int	num_len(long n)
 {
 	int	len;
 
 	len = 0;
+	if (n == 0)
+		return (len + 1);
 	if (n < 0)
+	{
 		len++;
-	n = -n;
+		n = -n;
+	}
 	while (n > 0)
 	{
 		n /= 10;
@@ -75,3 +85,13 @@ void	ft_reverse(char *string, int size)
 		j--;
 	}
 }
+
+/*int	main(void)
+{
+	printf("%s\n", ft_itoa(INT_MIN));
+	printf("%s\n", ft_itoa(0));
+	printf("%s\n", ft_itoa(1));
+	printf("%s\n", ft_itoa(-1));
+	printf("%s\n", ft_itoa(INT_MAX));
+	printf("%s\n", ft_itoa(-42));
+}*/

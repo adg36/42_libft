@@ -6,7 +6,7 @@
 /*   By: razevedo <razevedo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 09:07:46 by razevedo          #+#    #+#             */
-/*   Updated: 2025/10/20 10:21:38 by razevedo         ###   ########.fr       */
+/*   Updated: 2025/10/21 14:10:31 by razevedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,34 @@ void	*ft_memchr(const void *s, int c, size_t n)
 
 	str = (unsigned char *)s;
 	i = 0;
-	while (i < n)
+	while (n--)
 	{
-		if (str[i] == (char)c)
-			return ((unsigned char *)&str[i]);
-		i++;
+		if (*str == (char)c)
+			return ((void *)str);
+		str++;
 	}
 	return (NULL);
 }
+
+/*int	main(void)
+{
+	char data[] = "hello\0world";
+	void *ptr;
+
+	ptr = memchr(data, 'e', sizeof(data));
+	printf("Found 'e' at offset: %ld\n", (char *)ptr - data);
+	
+	ptr = memchr(data, 'z', sizeof(data));
+	printf("Found 'z' at offset: %ld\n", (char *)ptr - data);
+	
+	ptr = memchr(data, '\0', sizeof(data));
+	printf("Found '\0' at offset: %ld\n", (char *)ptr - data);
+	
+	ptr = memchr(data, 'h', 0);
+	printf("Found 'h' at offset: %ld\n", (char *)ptr - data);
+	
+	ptr = memchr(data, 'd', sizeof(data));
+	printf("Found 'd' at offset: %ld\n", (char *)ptr - data);
+
+	return (0);
+}*/
