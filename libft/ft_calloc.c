@@ -12,6 +12,7 @@
 
 #include "libft.h"
 #include <stdint.h>
+#include <stdlib.h>
 
 void	*ft_calloc(size_t nelem, size_t elsize)
 {

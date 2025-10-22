@@ -11,38 +11,30 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-int		ft_count_words(char const *string, char c);
+int	ft_count_words(char const *string, char c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-char	**ft_fill_arr(char const *s, char **arr, char c);
+void	free_all(char **strs, int i);
 
 char	**ft_split(char const *s, char c)
 {
 	char	**arr;
+	int	i;
+	int	arr_index;
+	int	word_len;
 
+	if (c == '\0')
+	{
+		arr = malloc(sizeof(char *));
+		if (!arr)
+			return (NULL);
+		arr[0] = NULL;
+		return (arr);
+	}
 	arr = malloc((ft_count_words(s, c) + 1) * sizeof(char *));
 	if (!arr)
 		return (NULL);
-	ft_fill_arr(s, arr, c);
-	return (arr);
-}
-
-void	free_all(char **strs, int i)
-{
-	while (i > 0)
-	{
-		i--;
-		free(strs[i]);
-	}
-	free(strs);
-}
-
-char	**ft_fill_arr(char const *s, char **arr, char c)
-{
-	int		i;
-	int		arr_index;
-	int		word_len;
-
 	i = 0;
 	word_len = 0;
 	arr_index = 0;
@@ -52,7 +44,7 @@ char	**ft_fill_arr(char const *s, char **arr, char c)
 	{
 		if (s[i] != c)
 			word_len++;
-		else if (s[i] == c)
+		else if (word_len > 0)
 		{
 			arr[arr_index] = ft_substr(s, i - word_len, word_len);
 			if (!arr[arr_index])
@@ -66,6 +58,16 @@ char	**ft_fill_arr(char const *s, char **arr, char c)
 		arr[arr_index++] = ft_substr(s, i - word_len, word_len);
 	arr[arr_index] = NULL;
 	return (arr);
+}
+
+void	free_all(char **strs, int i)
+{
+	while (i > 0)
+	{
+		i--;
+		free(strs[i]);
+	}
+	free(strs);
 }
 
 int	ft_count_words(char const *string, char c)
@@ -89,36 +91,18 @@ int	ft_count_words(char const *string, char c)
 	return (count);
 }
 
-/*char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	char			*substring;
-	unsigned int	i;
-
-	substring = malloc(len + 1);
-	if (!substring)
-		return (NULL);
-	i = 0;
-	while (i < len)
-	{
-		substring[i] = s[start];
-		i++;
-		start++;
-	}
-	substring[i] = '\0';
-	return (substring);
-}
-
+/*#include <stdio.h>
 int	main(void)
 {
-	char s[] = "Hello";
+	char s[] = "\0aa\0bbb";
 	char **array;
 
-	array = ft_split(s, ' ');
+	array = ft_split(s, '\0');
 
-	for (int i = 0; i < 1; i++)
+	for (int i = 0; i < 3; i++)
 		printf("%s\n", array[i]);
 
-	for (int i = 0; i < 1; i++)
+	for (int i = 0; i < 3; i++)
 		free(array[i]);
 	free(array);
 

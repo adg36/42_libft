@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+#include <stdlib.h>
 
 size_t	ft_strlen(const char *s);
 
@@ -42,11 +42,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	new_string[i] = '\0';
 	return (new_string);
 }
-/*
-int	main(void)
-{
-	char *string1 = "Hello ";
-	char *string2 = "world!";
-
-	printf("%s\n", ft_strjoin(string1, string2));
-}*/

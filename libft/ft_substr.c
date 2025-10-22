@@ -10,14 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
+#include <stdlib.h>
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char			*substring;
+	char		*substring;
 	unsigned int	i;
 
+	if (start >= ft_strlen(s))
+		return (ft_strdup(""));
 	substring = malloc(len + 1);
 	if (!substring)
 		return (NULL);

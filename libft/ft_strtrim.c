@@ -11,15 +11,15 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+#include <stdlib.h>
 
-int		in_set(char const *s, char c);
+int	in_set(char const *s, char c);
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*trimmed;
-	int		start_end[2];
-	int		i;
+	int	start_end[2];
+	int	i;
 
 	i = 0;
 	while (in_set(set, s1[i]))
@@ -54,10 +54,3 @@ int	in_set(char const *s, char c)
 	}
 	return (0);
 }
-
-/*int	main(void)
-{
-	char *string = "aabbGabba";
-
-	printf("%s\n", ft_strtrim(string, "ab"));
-}*/
