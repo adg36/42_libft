@@ -6,7 +6,7 @@
 /*   By: razevedo <razevedo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 16:47:39 by razevedo          #+#    #+#             */
-/*   Updated: 2025/10/21 16:09:29 by razevedo         ###   ########.fr       */
+/*   Updated: 2025/10/23 09:43:47 by razevedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char		*substring;
-	size_t			i;
+	size_t		i;
 
 	if (s == NULL)
 		return (NULL);

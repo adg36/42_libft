@@ -6,7 +6,7 @@
 /*   By: razevedo <razevedo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 14:39:24 by razevedo          #+#    #+#             */
-/*   Updated: 2025/10/21 13:03:45 by razevedo         ###   ########.fr       */
+/*   Updated: 2025/10/23 10:00:18 by razevedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,26 +30,3 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 		i++;
 	return (i);
 }
-
-/*int	main(void)
-{
-	char buffer[10];
-	size_t ret;
-
-	ret = ft_strlcpy(buffer, "abc", sizeof(buffer));
-	printf("Copied: '%s', returned: %zu\n", buffer, ret);
-
-	ret = ft_strlcpy(buffer, "Hello, world!", sizeof(buffer));
-	printf("Copied: '%s', returned: %zu\n", buffer, ret);
-
-	ret = ft_strlcpy(buffer, "", sizeof(buffer));
-	printf("Copied: '%s', returned: %zu\n", buffer, ret);
-
-	ret = ft_strlcpy(buffer, "abc", 0);
-	printf("Copied: '%s', returned: %zu\n", buffer, ret);
-
-	ret = ft_strlcpy(buffer, "123456789", sizeof(buffer));
-	printf("Copied: '%s', returned: %zu\n", buffer, ret);
-
-	return (0);
-}*/

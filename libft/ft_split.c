@@ -6,16 +6,16 @@
 /*   By: razevedo <razevedo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 11:13:51 by razevedo          #+#    #+#             */
-/*   Updated: 2025/10/21 15:09:33 by razevedo         ###   ########.fr       */
+/*   Updated: 2025/10/23 11:33:27 by razevedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-int		ft_count_words(char const *string, char c);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
-void	free_all(char **strs, int i);
+static int	ft_count_words(char const *string, char c);
+static void	free_all(char **strs, int i);
+static char	**get_words(char **arr, char const *s, char c, int i);
 
 char	**ft_split(char const *s, char c)
 {
@@ -24,7 +24,7 @@ char	**ft_split(char const *s, char c)
 	int		arr_index;
 	int		word_len;
 
-	if (!s || c == '\0')
+	if (!s || *s == '\0')
 	{
 		arr = malloc(sizeof(char *));
 		if (!arr)
@@ -40,6 +40,17 @@ char	**ft_split(char const *s, char c)
 	arr_index = 0;
 	while (s[i] == c)
 		i++;
+	get_words(arr, s, c, i);
+	return (arr);
+}
+
+static char	**get_words(char **arr, char const *s, char c, int i)
+{
+	int	word_len;
+	int	arr_index;
+
+	word_len = 0;
+	arr_index = 0;
 	while (s[i])
 	{
 		if (s[i] != c)
@@ -60,7 +71,7 @@ char	**ft_split(char const *s, char c)
 	return (arr);
 }
 
-void	free_all(char **strs, int i)
+static void	free_all(char **strs, int i)
 {
 	while (i > 0)
 	{
@@ -70,7 +81,7 @@ void	free_all(char **strs, int i)
 	free(strs);
 }
 
-int	ft_count_words(char const *string, char c)
+static int	ft_count_words(char const *string, char c)
 {
 	int	count;
 	int	in_word;
@@ -90,21 +101,3 @@ int	ft_count_words(char const *string, char c)
 	}
 	return (count);
 }
-
-/*#include <stdio.h>
-int	main(void)
-{
-	char s[] = "\0aa\0bbb";
-	char **array;
-
-	array = ft_split(s, '\0');
-
-	for (int i = 0; i < 3; i++)
-		printf("%s\n", array[i]);
-
-	for (int i = 0; i < 3; i++)
-		free(array[i]);
-	free(array);
-
-	return (0);
-}*/

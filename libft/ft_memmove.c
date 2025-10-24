@@ -6,12 +6,11 @@
 /*   By: razevedo <razevedo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 12:52:44 by razevedo          #+#    #+#             */
-/*   Updated: 2025/10/21 12:03:40 by razevedo         ###   ########.fr       */
+/*   Updated: 2025/10/23 09:57:12 by razevedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {

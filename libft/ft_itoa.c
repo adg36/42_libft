@@ -6,20 +6,19 @@
 /*   By: razevedo <razevedo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 13:32:20 by razevedo          #+#    #+#             */
-/*   Updated: 2025/10/21 15:13:30 by razevedo         ###   ########.fr       */
+/*   Updated: 2025/10/23 11:32:51 by razevedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <limits.h>
 #include "libft.h"
 
-int		num_len(long n);
-void	ft_reverse(char *string, int size);
+static int	num_len(long n);
+static void	ft_reverse(char *string, int size);
+static char	*get_digits(char *s, long nb, int sign);
 
 char	*ft_itoa(int n)
 {
-	int		i;
 	long	nb;
 	int		len;
 	int		sign;
@@ -33,6 +32,15 @@ char	*ft_itoa(int n)
 		return (NULL);
 	if (sign < 0)
 		nb = -nb;
+	get_digits(s, nb, sign);
+	ft_reverse(s, len);
+	return (s);
+}
+
+static char	*get_digits(char *s, long nb, int sign)
+{
+	int	i;
+
 	i = 0;
 	if (nb == 0)
 		s[i++] = '0';
@@ -44,11 +52,10 @@ char	*ft_itoa(int n)
 	if (sign < 0)
 		s[i++] = '-';
 	s[i] = '\0';
-	ft_reverse(s, len);
 	return (s);
 }
 
-int	num_len(long n)
+static int	num_len(long n)
 {
 	int	len;
 
@@ -68,7 +75,7 @@ int	num_len(long n)
 	return (len);
 }
 
-void	ft_reverse(char *string, int size)
+static void	ft_reverse(char *string, int size)
 {
 	int	i;
 	int	j;
@@ -85,13 +92,3 @@ void	ft_reverse(char *string, int size)
 		j--;
 	}
 }
-
-/*int	main(void)
-{
-	printf("%s\n", ft_itoa(INT_MIN));
-	printf("%s\n", ft_itoa(0));
-	printf("%s\n", ft_itoa(1));
-	printf("%s\n", ft_itoa(-1));
-	printf("%s\n", ft_itoa(INT_MAX));
-	printf("%s\n", ft_itoa(-42));
-}*/

@@ -6,13 +6,11 @@
 /*   By: razevedo <razevedo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 15:07:38 by razevedo          #+#    #+#             */
-/*   Updated: 2025/10/21 13:50:54 by razevedo         ###   ########.fr       */
+/*   Updated: 2025/10/23 10:00:03 by razevedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-size_t	ft_strlen(const char *s);
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {

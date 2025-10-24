@@ -1,42 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: razevedo <razevedo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/15 16:57:18 by razevedo          #+#    #+#             */
-/*   Updated: 2025/10/23 09:59:52 by razevedo         ###   ########.fr       */
+/*   Created: 2025/10/23 13:41:36 by razevedo          #+#    #+#             */
+/*   Updated: 2025/10/23 14:55:40 by razevedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	char			*new_string;
-	unsigned int	len;
-	unsigned int	i;
-	unsigned int	j;
-
-	len = ft_strlen(s1) + ft_strlen(s2);
-	new_string = malloc(len + 1);
-	if (!new_string)
-		return (NULL);
-	i = 0;
-	while (s1[i])
+	while (lst)
 	{
-		new_string[i] = s1[i];
-		i++;
+		f(lst->content);
+		lst = lst->next;
 	}
-	j = 0;
-	while (s2[j])
-	{
-		new_string[i] = s2[j];
-		i++;
-		j++;
-	}
-	new_string[i] = '\0';
-	return (new_string);
 }
