@@ -21,8 +21,6 @@ char	**ft_split(char const *s, char c)
 {
 	char	**arr;
 	int		i;
-	int		arr_index;
-	int		word_len;
 
 	if (!s || *s == '\0')
 	{
@@ -36,8 +34,6 @@ char	**ft_split(char const *s, char c)
 	if (!arr)
 		return (NULL);
 	i = 0;
-	word_len = 0;
-	arr_index = 0;
 	while (s[i] == c)
 		i++;
 	get_words(arr, s, c, i);
