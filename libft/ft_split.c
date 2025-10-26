@@ -15,12 +15,11 @@
 
 static int	ft_count_words(char const *string, char c);
 static void	free_all(char **strs, int i);
-static char	**get_words(char **arr, char const *s, char c, int i);
+static char	**get_words(char **arr, char const *s, char c);
 
 char	**ft_split(char const *s, char c)
 {
 	char	**arr;
-	int		i;
 
 	if (!s || *s == '\0')
 	{
@@ -33,36 +32,36 @@ char	**ft_split(char const *s, char c)
 	arr = malloc((ft_count_words(s, c) + 1) * sizeof(char *));
 	if (!arr)
 		return (NULL);
-	i = 0;
-	while (s[i] == c)
-		i++;
-	get_words(arr, s, c, i);
+	arr = get_words(arr, s, c);
+	if (!arr)
+		return (NULL);
 	return (arr);
 }
 
-static char	**get_words(char **arr, char const *s, char c, int i)
+static char	**get_words(char **arr, char const *s, char c)
 {
 	int	word_len;
 	int	arr_index;
+	int	i;
 
-	word_len = 0;
+	i = 0;
 	arr_index = 0;
 	while (s[i])
 	{
-		if (s[i] != c)
+		while (s[i] == c)
+			i++;
+		word_len = 0;
+		while (s[i + word_len] && s[i + word_len] != c)
 			word_len++;
-		else if (word_len > 0)
+		if (word_len > 0)
 		{
-			arr[arr_index] = ft_substr(s, i - word_len, word_len);
+			arr[arr_index] = ft_substr(s, i, word_len);
 			if (!arr[arr_index])
 				return (free_all(arr, arr_index), NULL);
-			word_len = 0;
 			arr_index++;
+			i += word_len;
 		}
-		i++;
 	}
-	if (word_len > 0)
-		arr[arr_index++] = ft_substr(s, i - word_len, word_len);
 	arr[arr_index] = NULL;
 	return (arr);
 }
