@@ -6,7 +6,7 @@
 /*   By: razevedo <razevedo@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 11:04:31 by razevedo          #+#    #+#             */
-/*   Updated: 2025/10/23 11:51:38 by razevedo         ###   ########.fr       */
+/*   Updated: 2025/10/28 14:35:37 by razevedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,8 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+void	ft_putaddress(unsigned long n, char *base);
+void    ft_putnbr_unsigned_fd(unsigned int n, int fd);
+void    ft_putnbr_base(int nbr, char *base);
 
 #endif
